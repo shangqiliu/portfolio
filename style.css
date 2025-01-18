@@ -84,3 +84,19 @@ h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
+body.resume {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr))
+}
+body.resume nav, body.resume h1 {
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+}
+body.resume section.contact {
+  grid-template-columns: subgrid;
+  grid-column: 1;
+}
+body.resume section {
+  grid-template-columns: subgrid;
+  grid-column: 2 / -1;
+}
