@@ -114,3 +114,52 @@ label.color-scheme select {
   font: inherit;
   font-size: 80%;
 }
+div.projects div {
+  font-family: Baskerville;
+  font-variant-numeric: oldstyle-nums
+}
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+  overflow: visible;
+}
+span.swatch {
+  display: inline-block;        
+  width: 40px;                  
+  aspect-ratio: 1 / 1;         
+  background-color: var(--color);
+  border-radius: 50%;  
+}
+ul.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  padding: 0.5em 1em;
+  margin: 1em;
+  flex: 1;
+}
+li.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+div.container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+&:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+path {
+  transition: 300ms;
+  cursor: pointer;
+}
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}

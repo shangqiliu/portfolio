@@ -75,7 +75,7 @@ export async function fetchJSON(url) {
       console.error('Error fetching or parsing JSON data:', error);
   }
 }
-export function renderProjects(project, containerElement, headingLevel = 'h2') {
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   // write javascript that will allow dynamic heading levels based on previous function
   const validHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
@@ -84,13 +84,18 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
       console.warn(`Invalid heading level "${headingLevel}" provided. Defaulting to "h2".`);
       headingLevel = 'h2';
   }
-  const article = document.createElement("article");
-  article.innerHTML = `
-    <${headingLevel}>${project.title}</${headingLevel}>
-    <img src="${project.image}" alt="${project.title}">
-    <p>${project.description}</p>
-`;
-  containerElement.appendChild(article);
+  containerElement.innerHTML = '';
+  projects.forEach(project => {
+    const article = document.createElement("article");
+    article.innerHTML = `
+      <${headingLevel}>${project.title}</${headingLevel}>
+      <img src="${project.image}" alt="${project.title}">
+      <p>${project.description}</p>
+      <div>${project.year}</div>
+    `;
+    containerElement.appendChild(article);
+  });
+  
 }
 export async function fetchGitHubData(username) {
   // return statement here
