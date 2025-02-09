@@ -13,9 +13,9 @@ function $$(selector, context = document) {
 // };
 let pages = [
     { url: '', title: 'Home' },
-    { url: 'projects/index.html', title: 'projects' },
-    { url: 'contact/index.html', title: 'contact'},
-    { url: 'resume/index.html', title: 'resume'},
+    { url: './projects/index.html', title: 'projects' },
+    { url: './contact/index.html', title: 'contact'},
+    { url: './resume/index.html', title: 'resume'},
     { url: 'https://github.com/shangqiliu', title: 'Github'}
   ];
 let nav = document.createElement('nav');

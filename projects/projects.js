@@ -78,9 +78,10 @@ searchInput.addEventListener('change', (event) => {
   // update query value
   query = event.target.value;
   // TODO: filter the projects
-  filteredProjects = projects.filter(project => 
-    Object.values(project).join('\n').toLowerCase().includes(query.toLowerCase())
-  );
+  let filteredProjects = projects.filter((project) => {
+    let values = Object.values(project).join('\n').toLowerCase();
+    return values.includes(query.toLowerCase());
+  });
   // TODO: render updated projects!
   projectsTitle.textContent = `${filteredProjects.length} Projects`;
   renderProjects(filteredProjects, projectsContainer, 'h2');
